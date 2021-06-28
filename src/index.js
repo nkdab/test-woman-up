@@ -1,11 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles.less'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles.less";
+import {App} from "./components/App";
 
-function Hello() {
-  return (
-    <div><h1>Hello from my configuration</h1></div>
-  )
-}
-
-ReactDOM.render(<Hello/>, document.getElementById('app'))
+ReactDOM.render(<App/>, document.getElementById("app"));
