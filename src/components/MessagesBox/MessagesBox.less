@@ -1,6 +1,11 @@
+@messages-bg: #faebd7;
+@messages-border-color: #f59c27;
+
 .messages {
-  background: #faebd7;
-  border: 2px solid #f59c27;
+  background: @messages-bg;
+  border: 2px solid @messages-border-color;
+  height: 60vh;
+  max-height: 60vh;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -8,3 +13,12 @@
   margin: 1rem;
   padding: 1rem;
 }
+
+@message-item-borders: 1px solid lighten(@messages-border-color, 20%);
+.messages-item {
+  border-bottom: @message-item-borders;
+  border-top: @message-item-borders;
+  margin: .5rem;
+  padding: .5rem;
+}
+

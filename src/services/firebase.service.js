@@ -16,6 +16,9 @@ if (typeof firebase === "undefined")
   throw new Error("hosting/init-error: Firebase SDK not detected.");
 firebase.initializeApp(firebaseConfig);
 
+export const db = firebase.firestore();
+export const query = db.collection("messages").orderBy("timestamp").limit(50);
+
 /**
  * Отправляет сообщение в Firebase Firestore
  * @param message
@@ -26,13 +29,10 @@ firebase.initializeApp(firebaseConfig);
  */
 export async function sendMessage(message) {
   try {
-    return await firebase
-      .firestore()
-      .collection("messages")
-      .add({
-        ...message,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      });
+    return await db.collection("messages").add({
+      ...message,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
   } catch (e) {
     console.error("Ошибка записи в базу данных", e);
   }

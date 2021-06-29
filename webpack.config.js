@@ -5,7 +5,7 @@ module.exports = {
   entry: path.join(__dirname, "/src/index.js"),
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "bundle[contenthash:8].js",
+    filename: "bundle-[contenthash:8].js",
   },
   devServer: {
     port: 3000,
@@ -34,7 +34,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Firebase Chat App",
+      title: "WomanUP Chat App",
       template: "./src/index.html",
     }),
   ],
