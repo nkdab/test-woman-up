@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/firestore";
+import {MESSAGES_LIMIT} from "../constants";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDWAHFZztWqu0ZaGyrwIBMgwIf42y3j4R4",
@@ -17,7 +18,7 @@ if (typeof firebase === "undefined")
 firebase.initializeApp(firebaseConfig);
 
 export const db = firebase.firestore();
-export const query = db.collection("messages").orderBy("timestamp").limit(50);
+export const query = db.collection("messages").orderBy("timestamp").limit(MESSAGES_LIMIT);
 
 /**
  * Отправляет сообщение в Firebase Firestore

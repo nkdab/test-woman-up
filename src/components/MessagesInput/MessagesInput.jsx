@@ -1,14 +1,14 @@
 import "./MessagesInput.less";
 import {useState} from "react";
 import uid from "../../helpers/generateId";
+import {DEFAULT_USER_NAME} from "../../constants";
 
 export function MessagesInput({onMessageAdd}) {
-  const defaultUserName = "anonymous";
-  const [userName, setUserName] = useState(defaultUserName);
+  const [userName, setUserName] = useState(DEFAULT_USER_NAME);
   const [chatMessage, setChatMessage] = useState("");
 
   const handleUserNameFocus = () => {
-    if (userName !== defaultUserName) {
+    if (userName !== DEFAULT_USER_NAME) {
       return;
     }
     setUserName("");
