@@ -1,6 +1,6 @@
 import "./MessagesInput.less";
 import {useState} from "react";
-import uid from "../../services/generateId";
+import uid from "../../helpers/generateId";
 
 export function MessagesInput({onMessageAdd}) {
   const defaultUserName = "anonymous";
