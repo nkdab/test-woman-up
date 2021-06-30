@@ -1,6 +1,6 @@
 import "./MessagesInput.less";
-import {useState} from "react";
-import {DEFAULT_USER_NAME} from "../../constants";
+import { useState } from "react";
+import { DEFAULT_USER_NAME } from "../../constants";
 
 /**
  * Компонент <MessagesInput /> отображающий сообщения чата
@@ -9,7 +9,7 @@ import {DEFAULT_USER_NAME} from "../../constants";
  * @returns {JSX.Element}
  * @constructor
  */
-export function MessagesInput({onMessageAdd}) {
+export function MessagesInput({ onMessageAdd }) {
   const [userName, setUserName] = useState(DEFAULT_USER_NAME);
   const [chatMessage, setChatMessage] = useState("");
 
@@ -45,7 +45,7 @@ export function MessagesInput({onMessageAdd}) {
    */
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newMessage = {userName: userName, text: chatMessage};
+    const newMessage = { userName: userName, text: chatMessage };
     onMessageAdd(newMessage);
   };
 
