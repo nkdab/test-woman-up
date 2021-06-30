@@ -1,8 +1,7 @@
 import {MessagesBox} from "../MessagesBox";
 import {MessagesInput} from "../MessagesInput";
-import {Loader} from "../Loader";
-import {useState} from "react";
-import {sendMessage} from "../../services/firebase.service";
+import {useEffect, useState} from "react";
+import {query, sendMessage} from "../../services/firebase.service";
 
 /**
  * Рендер приложения
@@ -13,16 +12,26 @@ export function App() {
     {id: "0", userName: "", text: "here no messages yet..."},
   ]);
 
+  useEffect(() => {
+    const unsubscribe = query.onSnapshot((querySnapshot) => {
+      const data = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setMessages(data);
+    });
+
+    return unsubscribe;
+  }, []);
+
   const handleAddMessage = async (msg) => {
     await sendMessage(msg);
-    setMessages([...messages, msg]);
   };
 
   return (
     <div>
       <MessagesBox messages={messages}/>
       <MessagesInput onMessageAdd={handleAddMessage}/>
-      <Loader/>
     </div>
   );
 }

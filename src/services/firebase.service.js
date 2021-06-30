@@ -18,7 +18,10 @@ if (typeof firebase === "undefined")
 firebase.initializeApp(firebaseConfig);
 
 export const db = firebase.firestore();
-export const query = db.collection("messages").orderBy("timestamp").limit(MESSAGES_LIMIT);
+export const query = db
+  .collection("messages")
+  .orderBy("timestamp", "desc")
+  .limit(MESSAGES_LIMIT);
 
 /**
  * Отправляет сообщение в Firebase Firestore

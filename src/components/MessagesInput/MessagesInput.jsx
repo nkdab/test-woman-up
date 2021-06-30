@@ -1,12 +1,21 @@
 import "./MessagesInput.less";
 import {useState} from "react";
-import uid from "../../helpers/generateId";
 import {DEFAULT_USER_NAME} from "../../constants";
 
+/**
+ * Компонент <MessagesInput /> отображающий сообщения чата
+ * @param {Object} props
+ * @param {function} props.onMessageAdd
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export function MessagesInput({onMessageAdd}) {
   const [userName, setUserName] = useState(DEFAULT_USER_NAME);
   const [chatMessage, setChatMessage] = useState("");
 
+  /**
+   * Сброс имени пользователя по умолчанию, при фокусе на окне ввода
+   */
   const handleUserNameFocus = () => {
     if (userName !== DEFAULT_USER_NAME) {
       return;
@@ -14,17 +23,29 @@ export function MessagesInput({onMessageAdd}) {
     setUserName("");
   };
 
+  /**
+   * Обработчик изменений в поле ввода имени пользователя
+   * @param {React.FormEvent} e - событие onChange
+   */
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
   };
 
+  /**
+   * Обработчик изменений в поле ввода текста сообщения
+   * @param {React.FormEvent} e - событие onChnge
+   */
   const handleMessageChange = (e) => {
     setChatMessage(e.target.value);
   };
 
+  /**
+   * Подготавливает и отправляет новое сообщение чата
+   * @param {React.FormEvent} e - Событие отправки формы
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newMessage = {id: uid(), userName: userName, text: chatMessage};
+    const newMessage = {userName: userName, text: chatMessage};
     onMessageAdd(newMessage);
   };
 
