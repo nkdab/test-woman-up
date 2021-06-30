@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/firestore";
-import {MESSAGES_LIMIT} from "../constants";
+import { MESSAGES_LIMIT } from "../constants";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDWAHFZztWqu0ZaGyrwIBMgwIf42y3j4R4",
@@ -26,7 +26,6 @@ export const query = db
 /**
  * Отправляет сообщение в Firebase Firestore
  * @param message
- * @param {string} message.id
  * @param {string} message.userName
  * @param {string} message.text
  * @returns {Promise<firebase.firestore.DocumentReference<firebase.firestore.DocumentData>>}
