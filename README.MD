@@ -1,5 +1,9 @@
 # Тестовое задание для компании WomanUP
 
+***
+![build](https://github.com/nkdab/test-woman-up/actions/workflows/firebase-hosting-merge.yml/badge.svg)
+![build](https://github.com/nkdab/test-woman-up/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)
+
 ### Что нужно сделать:
 
 - создать чат, состоящий из списка сообщений и окна ввода текста, разместить этот чат в интернет так, чтобы все
