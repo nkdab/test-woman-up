@@ -26,9 +26,9 @@ export function MessagesBox({messages}) {
             );
         });
 
-  return (
-    <div className="messages">
-      {!!messages.length ? elements : "Здесь пока нет сообщений..."}
-    </div>
-  );
+    return (
+        <div className="messages">
+            {!!messages.length ? elements : "Здесь пока нет сообщений..."}
+        </div>
+    );
 }

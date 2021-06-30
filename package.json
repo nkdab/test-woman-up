@@ -1,6 +1,6 @@
 {
   "name": "test-woman-up",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Тестовое задание для WomanUp",
   "main": "index.js",
   "scripts": {
