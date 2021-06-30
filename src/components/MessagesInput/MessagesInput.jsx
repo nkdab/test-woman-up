@@ -53,7 +53,7 @@ export function MessagesInput({onMessageAdd}) {
     <div className="messages-input">
       <form onSubmit={handleSubmit}>
         <label htmlFor="userName">
-          Ваше имя:{" "}
+          Ваше имя:
           <input
             type="text"
             name="userName"
@@ -64,7 +64,7 @@ export function MessagesInput({onMessageAdd}) {
         </label>
 
         <label htmlFor="msgText">
-          Сообщение:{" "}
+          Сообщение:
           <input
             type="text"
             name="msgText"
