@@ -3,7 +3,9 @@
 ***
 ![build](https://github.com/nkdab/test-woman-up/actions/workflows/firebase-hosting-merge.yml/badge.svg)
 ![build](https://github.com/nkdab/test-woman-up/actions/workflows/firebase-hosting-pull-request.yml/badge.svg)
-
+***
+[Демо](https://womanup-chat-ff467.web.app/)
+***
 ### Что нужно сделать:
 
 - создать чат, состоящий из списка сообщений и окна ввода текста, разместить этот чат в интернет так, чтобы все
