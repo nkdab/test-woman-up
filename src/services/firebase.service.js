@@ -40,3 +40,18 @@ export async function sendMessage(message) {
     console.error("Ошибка записи в базу данных", e);
   }
 }
+
+/**
+ * Подписка на обновления Firestore
+ * @param {function} callback - функция, в которую передаются данные
+ * @return {function} unsubscribe - функция отписки от обновлений
+ */
+export const subscription = (callback) => {
+  return query.onSnapshot((querySnapshot) => {
+    const data = querySnapshot.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    callback(data);
+  });
+};
