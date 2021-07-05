@@ -1,7 +1,7 @@
 import { MessagesBox } from "../MessagesBox";
 import { MessagesInput } from "../MessagesInput";
 import { useEffect, useState } from "react";
-import { query, sendMessage } from "../../services/firebase.service";
+import { sendMessage, subscription } from "../../services/firebase.service";
 
 /**
  * Рендер приложения
@@ -11,14 +11,7 @@ export function App() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = query.onSnapshot((querySnapshot) => {
-      const data = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setMessages(data);
-    });
-
+    const unsubscribe = subscription(setMessages);
     return unsubscribe;
   }, []);
 

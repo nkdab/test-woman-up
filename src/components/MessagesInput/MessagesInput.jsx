@@ -55,6 +55,7 @@ export function MessagesInput({ onMessageAdd }) {
         <label htmlFor="userName">
           Ваше имя:
           <input
+            id="userName"
             type="text"
             name="userName"
             value={userName}
@@ -66,6 +67,7 @@ export function MessagesInput({ onMessageAdd }) {
         <label htmlFor="msgText">
           Сообщение:
           <input
+            id="msgText"
             type="text"
             name="msgText"
             value={chatMessage}
