@@ -13,7 +13,8 @@ describe("Тест компонента  <MessageBox />", () => {
     expect(screen.getByText("Здесь пока нет сообщений...")).toBeInTheDocument();
   });
   test("Отображение сообщений", () => {
+    const { userName, text } = testMessages[0];
     render(<MessagesBox messages={testMessages} />);
-    expect(screen.getByText("2: 3")).toBeInTheDocument();
+    expect(screen.getByText(`${userName}: ${text}`)).toBeInTheDocument();
   });
 });
